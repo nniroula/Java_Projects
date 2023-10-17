@@ -23,4 +23,13 @@
 		<url-pattern>/signingup</url-pattern>
 	</servlet-mapping>
 	
+	<!-- postMethod.html file -->
+	<servlet>
+		<servlet-name>PostMethod</servlet-name>
+		<servlet-class>com.pc.PostAndGetServletMethods</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostMethod</servlet-name>
+		<url-pattern>/posting</url-pattern>
+	</servlet-mapping>
 </web-app>
