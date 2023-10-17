@@ -12,4 +12,15 @@
 		<url-pattern>/add</url-pattern>
 	</servlet-mapping>
 	
+	
+	<!-- 2nd Servlet -->
+	<servlet>
+		<servlet-name>signupForm</servlet-name>
+		<servlet-class>com.pc.SignupServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>signupForm</servlet-name>
+		<url-pattern>/signingup</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
