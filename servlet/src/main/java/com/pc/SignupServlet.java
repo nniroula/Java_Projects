@@ -29,12 +29,28 @@ public class SignupServlet extends HttpServlet {
 			// So, No output yet in the console.
 			// To fix it, you have to add SignupServlet class to the web.xml file with servlet tags
 			
+			 res.setContentType("text/html");
 			// Once you fix that and is working, use PrintWriter class and res.getWriter() to display the response on the browser
 			PrintWriter printOutput = res.getWriter();
-			printOutput.println("Your full name is " + firstName + " " + lastName);
 			
+			// PUT THIS IN HTML TAGS FOR DISPLAYING RESPONSE
+			/*
+			printOutput.println("Your full name is " + firstName + " " + lastName);
 			printOutput.println("Your email is --> " + emailAddress);
 			printOutput.printf("Your user name is %s ", uName );
+			*/
+			
+			// pass html tags in the response
+			printOutput.println("<html><body bgcolor='cyan'>");
+			printOutput.println("<h1>" + "This is Response page via Servlet" + "</h1>");
+			printOutput.println("<p>" + "Name: " + firstName + " " + lastName + "</p>");
+			//printOutput.println("<p>" + lastName + "</p>");
+			printOutput.println("<p>" + "Email ID: " + emailAddress + "</p>");
+			printOutput.println("<p>" + "User Name: " + uName + "</p>");
+			printOutput.println("</body></html>");
+			
+			//printOutput.println("<html><body bgcolor='red'>" + "<p>" + firstName + "</p>" + "</body></html>");
+			printOutput.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
