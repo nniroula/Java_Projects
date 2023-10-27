@@ -21,10 +21,33 @@ public class LoginServlet extends HttpServlet{
 		// retrieve user input from the html form
 		String inputEmail = req.getParameter("email");  // email is value for name field in html
 		String inputPassword = req.getParameter("pass"); // pass is value for name in html form
+		String inputName = req.getParameter("your-name");
+
+		// set an attribute to use in the profile.jsp page
+		//req.setAttribute("fullName", "NABIN");
+		req.setAttribute("fullName", inputName);
 		
 		if(inputEmail.equals("nabin@gmail.com") && inputPassword.equals("1234")) {
 			// redirect to profile page, this is internal to the program
-			res.sendRedirect("https:/www.google.com");
+			//res.sendRedirect("https:/www.google.com");
+			
+			RequestDispatcher rd = req.getRequestDispatcher("/profile.jsp");
+			PrintWriter out = res.getWriter();
+			out.println("This is profile.jsp file page");
+			try {
+				rd.forward(req, res);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			res.sendRedirect("profile.jsp");
+			
+			//RequestDispatcher rd = req.getRequestDispatcher("/profile.jsp");
+			
 		}else {
 			// redirect to login page by displaying error message
 			res.setContentType("text/html");
